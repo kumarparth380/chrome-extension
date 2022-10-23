@@ -4,7 +4,7 @@ const path = require("path");
 
 module.exports = {
   entry: {
-    popup: "./src/popup.jsx",
+    popup: "./src/popup.tsx",
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -22,6 +22,7 @@ module.exports = {
           },
         },
       },
+      { test: /\.(ts|tsx)$/, loader: "ts-loader", exclude: /node_modules/ },
     ],
   },
   plugins: [
