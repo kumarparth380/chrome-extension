@@ -1,7 +1,6 @@
 import React from "react";
-import { render } from "react-dom";
 
-const Popup: React.FC = () => {
+const Popup = () => {
   return (
     <div>
       <h1>Hello, world!</h1>
@@ -16,4 +15,4 @@ const Popup: React.FC = () => {
   );
 };
 
-render(<Popup />, document.getElementById("root"));
+export default Popup;
