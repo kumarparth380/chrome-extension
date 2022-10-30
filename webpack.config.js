@@ -4,14 +4,30 @@ const path = require("path");
 
 module.exports = {
   entry: {
-    popup: "./src/popup.tsx",
+    popup: path.join(__dirname, "src", "pages", "popup", "index.jsx"),
   },
   output: {
     path: path.resolve(__dirname, "build"),
-    filename: "[name].js",
+    filename: "[name].bundle.js",
   },
   module: {
     rules: [
+      {
+        // look for .css or .scss files
+        test: /\.(css|scss)$/,
+        // in the `src` directory
+        use: [
+          {
+            loader: "style-loader",
+          },
+          {
+            loader: "css-loader",
+          },
+          {
+            loader: "postcss-loader",
+          },
+        ],
+      },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
@@ -27,8 +43,10 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/popup.html",
+      template: path.join(__dirname, "src", "pages", "popup", "index.html"),
       filename: "popup.html",
+      chunks: ["popup"],
+      cache: false,
     }),
     new CopyWebpackPlugin({
       patterns: [
