@@ -41,6 +41,9 @@ module.exports = {
       { test: /\.(ts|tsx)$/, loader: "ts-loader", exclude: /node_modules/ },
     ],
   },
+  resolve: {
+    extensions: [".js", ".jsx", ".ts", ".tsx", ".css"],
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "src", "pages", "popup", "index.html"),
