@@ -4,7 +4,9 @@
   "description": "Chrome extension",
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "start": "node utils/webserver.js"
+    "start": "node utils/webserver.js",
+    "lint": "eslint src --fix && yarn format",
+    "format": "prettier --write '**/*.{js,jsx,ts,tsx,json,css,scss,md}'"
   },
   "main": "index.js",
   "repository": "git@github.com:kumarparth380/chrome-extension.git",
@@ -25,9 +27,17 @@
     "babel-loader": "^8.2.5",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",
+    "eslint": "^8.30.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-flowtype": "^8.0.3",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "html-webpack-plugin": "^5.5.0",
     "postcss": "^8.4.18",
     "postcss-loader": "^7.0.1",
+    "prettier": "^2.8.1",
     "style-loader": "^3.3.1",
     "tailwindcss": "^3.2.1",
     "ts-loader": "^9.4.1",
